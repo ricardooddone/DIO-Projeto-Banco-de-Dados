@@ -1,0 +1,20 @@
+para o DB_oficina utilizaremos;
+      
+- Peças em estoque
+select nome_peca from estoque_pecas order by nome_peca;
+
+- Quantidade total de OS
+select count(*) from ordem_servico;
+
+- Localizando o responsavel da equipe através da OS;
+select Responsavel, Numero from equipes e 
+		inner join ordem_servico os on idEquipes = idOSEquipes;
+
+- OS Concluidas
+select count(*) from ordem_servico where Status_ordem = 'Serviço concluido'; 
+      
+- Valor gasto por cada cliente PF
+select Razao_Social, CNPJ, Valor from cliente_pf
+		inner join cliente on idClientePF = idClientePF
+        inner join orcamento on idCliente = idOCliente
+        inner join ordem_servico on idOrcamento = idOSOrcamento; 

@@ -1,0 +1,16 @@
+para o DB_ecommerce utilizaremos;
+
+
+- Verificando a quantidade de clientes
+select count(*) from cliente;
+
+
+- Relacionando produtos com valor abaixo de 300 reais
+select count(*) from produto where Preco_unitario <300;
+
+
+- Relacionando produtos em estoque que serão utilizados para uma campanha de Marketing.
+select p.Nome, Quantidade_estoque from produto p
+		inner join produto_em_estoque pe on idProduto=idEsProduto
+        having Quantidade_estoque < 500
+        order by pe.Quantidade_estoque;
